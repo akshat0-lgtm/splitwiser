@@ -12,32 +12,6 @@ voice note ──┘
                        │
                        ▼
                   Splitwise API     → itemized expense in your group
-```
-
-Everything runs on a single **Groq API key** (free tier) plus a **Splitwise API key**.
-
-## Stack
-
-- **Backend:** FastAPI (`main.py`) — `/groups`, `/preview`, `/process-bill`
-- **Frontend:** Streamlit (`app.py`) — Splitwise-styled, mobile-friendly
-- **Models (all Groq):** Whisper transcription, Llama 4 Scout vision/OCR, GPT-OSS 120B reasoning
-- **Splitwise:** REST API via personal API key (`splitwise_client.py`)
-
-## Run locally
-
-```bash
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env          # fill in the two keys
-.venv/bin/uvicorn main:app --reload     # terminal 1
-.venv/bin/streamlit run app.py          # terminal 2
-```
-
-`.env` needs:
-```
-SPLITWISE_API_KEY=...    # secure.splitwise.com/apps -> register -> API key
-GROQ_API_KEY=...         # console.groq.com/keys
-```
 
 ---
 
@@ -52,6 +26,8 @@ GROQ_API_KEY=...         # console.groq.com/keys
   pass `payer_id` to the backend. `build_shares()` already accepts `payer_id`, so
   the core logic barely changes. Expense still posts from my API key; only the
   recorded payer changes.
+Show how much you actually saved
+
 
 ## Later
 - [ ] **Multi-user sign-in (Path B)** — OAuth 2.0, per-user access tokens, a session
