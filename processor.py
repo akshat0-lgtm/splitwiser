@@ -110,7 +110,11 @@ VOICE NOTE (who ate/ordered what):
 Rules:
 - Assign each item to the person(s) the voice note says ordered/ate it.
 - If an item is "shared" or unmentioned, split it equally across everyone present.
-- Tax, service charge, tip, delivery fees → always split equally across everyone.
+- Tax, service charge, tip, delivery fees → split equally ONLY across people who
+  had at least one item. If the voice note explicitly says someone is "at zero",
+  "had nothing", or "wasn't there", exclude them entirely — they owe 0 total,
+  including no share of tax/service. Never assign a charge to someone the voice
+  note has zeroed out.
 - Some items show a quantity and a per-unit price, e.g. "Premium ticket: 620 INR
   (qty 4 @ 155 each)". If the voice note assigns specific units to people
   ("Roshni covered 3 tickets, Akshat had 1"), split that line by unit price:
